@@ -5,6 +5,16 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">We<span class="text-secondary">L</span>come</h1>
+
+    <img src="~/images/brainstorming.png" />
+
+</div>
+<div class="container ">
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <div class="row">
+            <a asp-page="/Account/Register" class="btn btn-info bg-gradient w-25 m-auto">Register</a>    
+        </div>
+    }
 </div>
