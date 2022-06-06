@@ -1,0 +1,24 @@
+﻿@page
+@model LeaveEmployeeManager.Pages.LeaveTypes.DeleteModel
+@{
+}
+<div class="container bg-light p-5 shadow">
+    <h1 class="mb-3">Delete <span class="badge bg-secondary">Leave Type</span></h1>
+    <form method="post">
+        <input asp-for="LeaveType.Id" style="visibility:hidden;" />
+        <input asp-for="LeaveType.DateCreated" style="visibility:hidden;" />
+        <div class="input-group mb-3 w-75">
+            <div class="input-group-prepend" >
+               <button class="btn btn-outline-secondary disabled"><i class="bi bi-body-text" ></i></button>
+            </div>
+            <input asp-for="LeaveType!.Name" class="form-control" placeholder="Leave Type Name " disabled/>       
+        </div>
+        <div class="input-group mb-3 w-75">
+            <div class="input-group-prepend" >
+               <button class="btn btn-outline-secondary disabled"><i class="bi bi-body-text" ></i></button>
+            </div>
+            <input asp-for="LeaveType!.DefaultDays" class="form-control" placeholder="Default Days" disabled/>       
+        </div>
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+</div>

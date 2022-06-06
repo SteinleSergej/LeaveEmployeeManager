@@ -1,0 +1,20 @@
+﻿@using LeaveEmployeeManager.Models
+
+@model Models.LeaveType
+
+<div class="card w-50 m-auto">
+    <div class="card-header h3 text-white bg-secondary">@Model.Name</div>
+    <div class="card-body">
+        <div class="container">
+            <p class="h4">Default Days : @Model.DefaultDays</p>
+            <div class="btn-group">
+                <a asp-page="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+                <a asp-page="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer d-flex justify-content-between">
+        <p>Create: @Model.DateCreated.ToString("dd/MMM/yyyy-HH:MM") h</p>
+        <p>Last Update: @Model.DateModified.ToString("dd/MMM/yyyy-HH:MM") h</p>
+    </div>
+</div>
