@@ -1,12 +1,14 @@
 
 using LeaveEmployeeManager.Data;
 using LeaveEmployeeManager.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 namespace LeaveEmployeeManager.Pages.LeaveTypes
 {
+
     public class CreateModel : PageModel
     {
         private ApplicationDbContext _context;
