@@ -14,7 +14,7 @@
     @if (!User.Identity.IsAuthenticated)
     {
         <div class="row">
-            <a asp-page="/Account/Register" class="btn btn-info bg-gradient w-25 m-auto">Register</a>    
+            <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-info bg-gradient w-25 m-auto">Register</a>    
         </div>
     }
 </div>

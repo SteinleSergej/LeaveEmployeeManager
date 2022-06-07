@@ -1,24 +1,41 @@
 
 using LeaveEmployeeManager.Data;
+using LeaveEmployeeManager.Models;
+using LeaveEmployeeManager.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+
+
+
 
 // Add services to the container.
 builder.Services.AddRazorPages().AddMvcOptions(o => o.Filters.Add(new AuthorizeFilter()));
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer("name=DefaultConnection"));
 
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie();
 
-void CookieAuthenticationDefault(AuthenticationOptions obj)
+//Set up Identity Core
+builder.Services.AddDefaultIdentity<User>(options =>
 {
-    throw new NotImplementedException();
-}
+    //super save password options XD
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireDigit = false;
+
+    options.SignIn.RequireConfirmedAccount = true;
+    
+}).AddEntityFrameworkStores<ApplicationDbContext>();
+
+//Implement Email Func
+builder.Services.AddTransient<IEmailSender>(service => new EmailSender("localhost",25,"no-reply@whatHaveIDone.de"));
 
 var app = builder.Build();
 
