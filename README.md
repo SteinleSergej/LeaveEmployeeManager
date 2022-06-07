@@ -11,3 +11,7 @@ LeaveEmployeeManager
 
 [CRUD]
 ![Leave Types](https://user-images.githubusercontent.com/90547798/172244231-e51dec72-50fd-4a36-90ce-e9f70192c415.png)
+
+[Register]
+
+![Register](https://user-images.githubusercontent.com/90547798/172253833-f87ef9f3-2bc2-4de2-8d7c-d12d516ebf3d.png)
